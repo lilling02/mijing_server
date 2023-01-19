@@ -46,8 +46,8 @@ export class LeavingwordService {
 
   // 删除留言 接受对应的留言的id 然后进行删除
   async remove(id: number) {
-
-    let removeEntitie = await this.levingWord.findOneById(id);
-    return this.levingWord.remove(removeEntitie)
+    return this.levingWord.delete(id)
+    // let removeEntitie = await this.levingWord.findOneById(id);
+    // return this.levingWord.remove(removeEntitie)
   }
 }

@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DbtestModule } from './dbtest/dbtest.module';
 import { LeavingwordModule } from './leavingword/leavingword.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { LeavingwordModule } from './leavingword/leavingword.module';
       autoLoadEntities: true // 自动引入实体
     }),
     DbtestModule,
-    LeavingwordModule
+    LeavingwordModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
