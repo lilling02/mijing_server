@@ -5,7 +5,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
@@ -17,9 +17,11 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
+  @Get(':cloudID')      //  符合这个路径的用这个路由
+  findOne(@Param('cloudID') masterCloudID: string) {  // 获取请求中的param
+    // console.log('cloudID:', masterCloudID); // 只会获取占位符占着的参数,不会获取?之后的参数
+
+    return this.userService.findOne(masterCloudID);
   }
 
   @Patch(':id')
@@ -27,8 +29,8 @@ export class UserController {
     return this.userService.update(+id, updateUserDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
+  @Delete()
+  remove(@Body() DeleteForumUserUUid) {
+    return this.userService.remove(DeleteForumUserUUid);
   }
 }

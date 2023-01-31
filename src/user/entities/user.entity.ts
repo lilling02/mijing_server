@@ -16,4 +16,7 @@ export class User {
 
     @CreateDateColumn({ type: "timestamp", nullable: true })
     create_time: Date
+
+    @Column({ type: 'boolean', default: false, comment: "用户是否已经被删除" })
+    isDelete: boolean
 }

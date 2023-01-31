@@ -39,15 +39,14 @@ export class LeavingwordService {
     let updataEntitie = await this.levingWord.findOneById(id);
     if (!updataEntitie) {
       throw new Error("修改失败,数据库中不存在此信息");
-
     }
     return this.levingWord.update(id, updateLeavingwordDto);
   }
 
   // 删除留言 接受对应的留言的id 然后进行删除
   async remove(id: number) {
-    return this.levingWord.delete(id)
-    // let removeEntitie = await this.levingWord.findOneById(id);
-    // return this.levingWord.remove(removeEntitie)
+    // return this.levingWord.delete(id)
+    let removeEntitie = await this.levingWord.findOneById(id);
+    return this.levingWord.remove(removeEntitie)
   }
 }
