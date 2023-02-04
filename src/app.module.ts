@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DbtestModule } from './dbtest/dbtest.module';
 import { LeavingwordModule } from './leavingword/leavingword.module';
 import { UserModule } from './user/user.module';
+import { PostitemModule } from './postitem/postitem.module';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { UserModule } from './user/user.module';
     }),
     DbtestModule,
     LeavingwordModule,
-    UserModule
+    UserModule,
+    PostitemModule
   ],
   controllers: [AppController],
   providers: [AppService],
