@@ -18,6 +18,9 @@ export class Comment {
     @Column()
     commented_post: number
 
+    @Column({ nullable: true })
+    commentator: string
+
     @ManyToOne(() => Postitem)
     postitem: Postitem
 

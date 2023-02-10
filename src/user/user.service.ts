@@ -50,4 +50,8 @@ export class UserService {
     return this.User.remove(tobeDeleteUser)
   }
 
+  // 用uuid查找用户的方法
+  findOntbyUUID(uuid) {
+    return this.User.find({ where: { forumUseruuid: uuid } })
+  }
 }

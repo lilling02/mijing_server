@@ -33,4 +33,11 @@ export class UserController {
   remove(@Body() DeleteForumUserUUid) {
     return this.userService.remove(DeleteForumUserUUid);
   }
+
+  @Get('/getbyuuid/:uuid')
+  findOntbyUUID(@Param('uuid') uuid: string) {
+    console.log(uuid);
+
+    return this.userService.findOntbyUUID(uuid)
+  }
 }

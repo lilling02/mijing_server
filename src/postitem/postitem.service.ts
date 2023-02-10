@@ -6,6 +6,7 @@ import { Postitem } from './entities/postitem.entity';
 import { Comment } from './entities/comment.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { async } from 'rxjs';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class PostitemService {
@@ -73,6 +74,11 @@ export class PostitemService {
   // 返回帖子信息以及帖子的评论
   async findPostCommentById(postitemId) {
     const postitem = await this.Postitem.findOne({ relations: ['comment'], where: { id: postitemId } })
+    postitem.comment.forEach(item => {
+      // let commotor = this.UserService.findOntbyUUID(item.commentatoruuid)
+      // console.log(commotor);
+
+    })
     return postitem
   }
 
